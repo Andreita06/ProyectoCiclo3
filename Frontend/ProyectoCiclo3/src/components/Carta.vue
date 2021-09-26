@@ -2,7 +2,7 @@
   <v-card
     class="mx-auto"
     max-width="344"
-    outlined
+    border
   >
     <v-list-item three-line>
       <v-list-item-content>
@@ -15,11 +15,11 @@
         <v-list-item-subtitle>{{ultimaFechaV}}</v-list-item-subtitle>
       </v-list-item-content>
 
-      <v-list-item-avatar
-        tile
-        size="80"
-        color="grey"
-      ></v-list-item-avatar>
+      <v-avatar size= "125">
+         <img src="../assets/MascotasVacunadas.jpg"
+            alt="Mascota"
+          >   
+      </v-avatar>
     </v-list-item>
 
     <v-card-actions class="j-center">
@@ -40,6 +40,11 @@
         Eliminar
       </v-btn>
     </v-card-actions>
+
+    <v-switch
+      v-model="AlertaNotificacion"
+      label="Alerta De Notificación"
+    ></v-switch>
   </v-card>
 </template>
 
@@ -55,7 +60,7 @@ export default {
             console.log("editar")
         },
         eliminar(){
-            console.log("editar")
+            console.log("eliminar")
         }
     }
 }
