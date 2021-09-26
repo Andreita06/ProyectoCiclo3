@@ -32,8 +32,6 @@
             :items="items"
             Perro
             Gato
-            Hamster
-            Conejo
             label="Animal"
             outlined
           ></v-autocomplete>
@@ -42,10 +40,12 @@
           <v-autocomplete
             v-model="values"
             :items="tipos"
+            Mini Pincher
             Samoyedo
             Bulldog
             Sin raza
             San Bernardo
+            Coccer Spanic
             label="Raza"
             outlined
           ></v-autocomplete>
@@ -87,8 +87,8 @@
 <script>
   export default {
     data: () => ({
-      items: ['Perro', 'Gato', 'Hamster', 'Conejo'],
-      tipos: ['Samoyedo', 'Bulldog', 'Sin raza', 'San Bernardo'],
+      items: ['Perro', 'Gato'],
+      tipos: ['mini Pincher', 'Samoyedo', 'Bulldog', 'Sin raza', 'San Bernardo', 'Coccer Spanic'],
       values: ['foo', 'bar'],
       value: null,
     }),

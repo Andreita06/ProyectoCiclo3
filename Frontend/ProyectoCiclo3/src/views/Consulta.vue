@@ -1,6 +1,5 @@
 <template>
-  <!--- agrege la barra donde estan las rutas que redirecionan a 
-  las demas vistas ademas de una imagen - joel----->
+ 
   <div class="consulta">
     <Navegacion></Navegacion>
 <v-app>
@@ -23,17 +22,16 @@
 </template>
 
 <script>
-import Busqueda from '../components/Busqueda.vue'
-import Carta from '../components/Carta.vue'
+//import Busqueda from '../components/Busqueda.vue'
 import Navegacion from '../components/Navegacion.vue'
-
+import Carta from '../components/Carta.vue'
 
 export default {
   
   name: 'Inscripcion',
   components: {
    
-    Busqueda,
+    //Busqueda,
     Navegacion,
     Carta  
   }

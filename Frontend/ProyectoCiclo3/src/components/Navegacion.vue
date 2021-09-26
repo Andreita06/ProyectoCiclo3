@@ -16,7 +16,7 @@
     <v-spacer></v-spacer>
     <router-link class="btn_nav" to="/inscripcion">Inscripción </router-link>
     <router-link class="btn_nav" to="/consulta">Consulta</router-link>
-    <router-link class="btn_nav" to="/insmascota">Inscribir Mascota</router-link>
+    <router-link class="btn_nav" to="/insmascota">Datos Mascota</router-link>
   </v-app-bar>
   </div>
 </template>

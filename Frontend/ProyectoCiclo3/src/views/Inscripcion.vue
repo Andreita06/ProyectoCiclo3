@@ -1,6 +1,5 @@
 <template>
-  <!--- agrege la barra donde estan las rutas que redirecionan a 
-  las demas vistas ademas de una imagen - joel----->
+ 
   <div class="inscripcion">
     <Navegacion></Navegacion>
     <v-app>
