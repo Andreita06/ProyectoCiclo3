@@ -42,6 +42,7 @@
     </v-card-actions>
 
     <v-switch
+      color="purple"
       v-model="AlertaNotificacion"
       label="Alerta De Notificación"
     ></v-switch>

@@ -75,7 +75,15 @@
         </v-text-field>
          </v-col>
         </v-row>
+  
+    <v-switch
+      color="purple"
+      v-model="AlertaNotificacion"
+      label="Alerta De Notificación"
+    ></v-switch>
+
     <v-row>
+    
     <v-date-picker
       v-model="picker"
       color="green lighten-1"

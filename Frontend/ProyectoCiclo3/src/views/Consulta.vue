@@ -11,6 +11,7 @@
             outlined
             label="Buscador"
             append-icon="mdi-magnify"
+            @click:append="consultar"
     >        
     </v-text-field>
     
@@ -21,8 +22,7 @@
       <Carta nombreMascota="Violeta" ultimaFechaV="07/10/2020" descripcion="Vacuna Contra la Rabia"></Carta>
       </v-row>
     </v-card>
-    
-  
+      
   </v-app>
   
   </div>
@@ -44,6 +44,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
