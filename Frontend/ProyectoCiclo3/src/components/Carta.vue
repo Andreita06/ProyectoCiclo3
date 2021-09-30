@@ -1,44 +1,24 @@
 <template>
-  <v-card
-    class="mx-auto"
-    max-width="344"
-    border
-  >
+  <v-card class="mx-auto" max-width="344" border>
     <v-list-item three-line>
       <v-list-item-content>
         <div class="text-overline mb-4">
-          {{nombreMascota}}
+          {{ nombreMascota }}
         </div>
         <v-list-item-title class="mb-1">
-          {{descripcion}}
+          {{ descripcion }}
         </v-list-item-title>
-        <v-list-item-subtitle>{{ultimaFechaV}}</v-list-item-subtitle>
+        <v-list-item-subtitle>{{ ultimaFechaV }}</v-list-item-subtitle>
       </v-list-item-content>
 
-      <v-avatar size= "125">
-         <img src="../assets/MascotasVacunadas.jpg"
-            alt="Mascota"
-          >   
+      <v-avatar size="125">
+        <img src="../assets/MascotasVacunadas.jpg" alt="Mascota" />
       </v-avatar>
     </v-list-item>
 
     <v-card-actions class="j-center">
-      <v-btn
-      color="primary"
-        outlined
-        tile
-        text
-      >
-        Editar
-      </v-btn>
-      <v-btn
-        color="error"
-        outlined
-        tile
-        text
-      >
-        Eliminar
-      </v-btn>
+      <v-btn color="primary" outlined tile text> Editar </v-btn>
+      <v-btn color="error" outlined tile text> Eliminar </v-btn>
     </v-card-actions>
 
     <v-switch
@@ -51,24 +31,24 @@
 
 <script>
 export default {
-    props:{
-        nombreMascota: String,
-        ultimaFechaV: String,
-        descripcion: String,
+  props: {
+    nombreMascota: String,
+    ultimaFechaV: String,
+    descripcion: String,
+  },
+  methods: {
+    editar() {
+      console.log("editar");
     },
-    methods:{
-        editar(){
-            console.log("editar")
-        },
-        eliminar(){
-            console.log("eliminar")
-        }
-    }
-}
+    eliminar() {
+      console.log("eliminar");
+    },
+  },
+};
 </script>
 
 <style>
-.j-center{
-    justify-content: center;
+.j-center {
+  justify-content: center;
 }
 </style>

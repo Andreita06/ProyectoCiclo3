@@ -5,13 +5,12 @@ import Login from '../views/Login.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  
+  // Diferentes rutas
   {
     path: '/',
     name: 'Login',
     component: Login
-  },
-  
+  },  
   {
     path: '/insmascota',
     name: 'InsMascota',

@@ -1,5 +1,4 @@
 <template>
- 
   <div class="inscripcion">
     <Navegacion></Navegacion>
     <v-app>
@@ -24,5 +23,4 @@ export default {
 };
 </script>
 <style lang="scss">
-
 </style>
