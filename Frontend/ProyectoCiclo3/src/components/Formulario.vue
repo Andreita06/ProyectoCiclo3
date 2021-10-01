@@ -1,7 +1,7 @@
 <template>
-  <v-form>
-    <v-container >
-      <v-row>
+    <v-container class="formulario">
+      <v-row align="center" class="ma-0" justify="center">
+        <h1>Formulario de registro de usuario</h1>
         <v-col
           cols="12"
           sm="6"
@@ -64,8 +64,21 @@
           ></v-text-field>
 
         </v-col>
+        <v-col
+         cols="12"
+          sm="6">
+          <v-btn block color="red">Cancelar</v-btn>
+        </v-col>
+        <v-col
+         cols="12"
+          sm="6">
+          <v-btn block color="blue">Registrarse</v-btn>
+        </v-col>
       </v-row>
     </v-container>
-  </v-form>
-  
 </template>
+<style scoped>
+.formulario{
+  max-width: 900px;
+}
+</style>

@@ -1,5 +1,4 @@
 <template>
-  
       <div id="cont">
           <h1></h1>
           <v-simple-table dark>

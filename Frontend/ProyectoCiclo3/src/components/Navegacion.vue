@@ -1,5 +1,4 @@
 <template>
-<div>
   <v-app-bar app color="teal">
 
     <div class="d-flex align-center">
@@ -18,7 +17,6 @@
     <router-link class="btn_nav" to="/insmascota">Datos Mascota</router-link>
     <router-link class="btn_nav" to="/consulta">Consulta</router-link>
   </v-app-bar>
-  </div>
 </template>
 
 <script>

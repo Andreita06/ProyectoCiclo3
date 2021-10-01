@@ -8,7 +8,7 @@
       contain
     ></v-img>
 
-    <v-card-tex>
+    <v-card-text>
       <v-form class="mx-5">
         <v-text-field
           label="Usuario"
@@ -21,7 +21,7 @@
           outlined
         ></v-text-field>
       </v-form>
-    </v-card-tex>
+    </v-card-text>
     <div class="contenedor">
       <v-card-actions id="bt1">
       <v-btn depressed color="error" elevation="2" block @click="login">INICIAR SESIÓN</v-btn>
@@ -59,7 +59,7 @@ export default {
     
 </script>
 
-<style>
+<style scoped>
 .login{
   height: 100vh;
   display: flex;
