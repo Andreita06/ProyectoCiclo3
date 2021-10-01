@@ -1,66 +1,77 @@
 <template>
-<div class="login">
-<v-card id="card" class="mx-auto" width="350">
-    <h1> INICIO SESIÓN </h1>
-    <v-img
-      src="../assets/MascotasVacunadas.jpg"
-      height="180"
-      contain
-    ></v-img>
-
-    <v-card-text>
-      <v-form class="mx-5">
-        <v-text-field
-          label="Usuario"
-          placeholder="Número Identificación"
-          outlined
-        ></v-text-field>
-        <v-text-field
-          label="Contraseña"
-          placeholder="Contraseña"
-          outlined
-        ></v-text-field>
-      </v-form>
-    </v-card-text>
-    <div class="contenedor">
-      <v-card-actions id="bt1">
-      <v-btn depressed color="error" elevation="2" block @click="login">INICIAR SESIÓN</v-btn>
-      </v-card-actions>
-    
-    <v-card-actions id="bt1">
-      <v-btn depressed color="primary" elevation="2" block @click="registro">REGISTRARME</v-btn>
-    </v-card-actions>
-    </div>
-    <router-link to="/recuperarContraseña" class="span">¿Olvidaste tu contraseña?</router-link>
-  </v-card>
-</div>
-  
+  <!-- Contenedor principal de vista -->
+  <!-- -->
+  <div class="login">
+    <v-card id="card" class="mx-auto" width="350">
+      <!-- -->
+      <h1>INICIO SESIÓN</h1>
+      <v-img src="../assets/MascotasVacunadas.jpg" height="180" contain></v-img>
+      <!-- -->
+      <v-card-tex>
+        <v-form class="mx-5">
+          <v-text-field
+            label="Usuario"
+            placeholder="Número Identificación"
+            outlined
+          ></v-text-field>
+          <v-text-field
+            label="Contraseña"
+            placeholder="Contraseña"
+            outlined
+          ></v-text-field>
+        </v-form>
+      </v-card-tex>
+      <!-- -->
+      <div class="contenedor">
+        <!-- -->
+        <v-card-actions id="bt1">
+          <v-btn depressed color="error" elevation="2" block @click="login"
+            >INICIAR SESIÓN</v-btn
+          >
+        </v-card-actions>
+        <!-- -->
+        <v-card-actions id="bt1">
+          <v-btn depressed color="primary" elevation="2" block @click="registro"
+            >REGISTRARME</v-btn
+          >
+        </v-card-actions>
+      </div>
+      <!-- -->
+      <router-link to="/recuperarContraseña" class="span"
+        >¿Olvidaste tu contraseña?</router-link
+      >
+    </v-card>
+  </div>
 </template>
 
 <script>
+import store from "../store/index.js";
 export default {
-  data: ()=>{
-      return{
-
-      }
+  // Para datos
+  data: () => {
+    return {};
+  },
+  // Los diferentes metodos
+  methods: {
+    login() {
+      console.log("Vereficando credenciales..");
+      this.$router.push("/consulta");
     },
+    registro() {
+      console.log("Vereficando credenciales..");
+      this.$router.push("/inscripcion");
+    },
+  },
+  created: ()=>{
 
-    methods: {
-      login(){
-        console.log("Vereficando credenciales..");
-        this.$router.push('/consulta');
-      },
-      registro(){
-        console.log("Vereficando credenciales..");
-        this.$router.push('/inscripcion')
-      }
-    }
-}
-    
+    store.dispatch('getMascota')
+
+  }
+};
 </script>
 
-<style scoped>
-.login{
+<style>
+.login {
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -70,20 +81,20 @@ export default {
   height: fit-content;
   justify-content: center;
 }
-h1{
+h1 {
   text-align: center;
 }
 
 #bt1 {
-   justify-content: center;
+  justify-content: center;
 }
-.contenedor{
+.contenedor {
   margin: 0 auto;
   align-items: center;
   justify-content: center;
   width: 70%;
 }
-.span{
+.span {
   display: block;
   text-align: center;
   font-size: 14px;
@@ -93,5 +104,4 @@ h1{
   color: blue;
   text-decoration: none;
 }
-
 </style>

@@ -1,6 +1,8 @@
 <template>
-  <div class="container text-center">
-    <div class="container">
+  <div class="inscripcion">
+    <Navegacion></Navegacion>
+    <v-app>
+      <div class="home">
         <img alt="logo" src="../assets/MascotasVacunadas.jpg" />
       </div>
       <Formulario></Formulario>
@@ -18,5 +20,4 @@ export default {
 };
 </script>
 <style lang="scss">
-
 </style>
