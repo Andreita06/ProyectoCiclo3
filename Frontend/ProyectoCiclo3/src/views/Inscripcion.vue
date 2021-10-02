@@ -6,6 +6,7 @@
         <img alt="logo" src="../assets/MascotasVacunadas.jpg" />
       </div>
       <Formulario></Formulario>
+    </v-app>
   </div>
 </template>
 
