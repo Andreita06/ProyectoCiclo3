@@ -1,76 +1,91 @@
-<template>
-  <v-form>
-    <v-container fluid>
-      <v-row>
-        <v-col cols="2" sm="2">
-          <v-text-field v-model="first" label="Nombre" outlined></v-text-field>
-        </v-col>
-        <v-col cols="2" sm="2">
-          <v-text-field v-model="first" label="Edad" outlined></v-text-field>
-        </v-col>
-      </v-row>
-      <v-row align="center">
-        <v-col cols="2">
-          <v-autocomplete
-            v-model="values"
-            :items="items"
-            Perro
-            Gato
-            label="Animal"
-            outlined
-          ></v-autocomplete>
-        </v-col>
-        <v-col cols="2">
-          <v-autocomplete
-            v-model="values"
-            :items="tipos"
-            Mini
-            Pincher
-            Samoyedo
-            Bulldog
-            Sin
-            raza
-            San
-            Bernardo
-            Coccer
-            Spanic
-            label="Raza"
-            outlined
-          ></v-autocomplete>
-        </v-col>
-      </v-row>
-      <h3>Sufre de alergias</h3>
-      <v-row>
-        <p>{{ selected }}</p>
-        <v-checkbox v-model="selected" label="Si" value="Si"></v-checkbox>
-        <v-checkbox v-model="selected" label="No" value="No"></v-checkbox>
-      </v-row>
-      <v-col cols="12" sm="6">
-        <v-text-field v-model="first" label="Descripción" outlined>
-        </v-text-field>
-      </v-col>
-      <v-row>
-        <v-col cols="12" sm="6">
+<template ref="Mascota">
+  <div class="mascota">
+    <v-card id="card" class="mx-auto" width="550">
+      <v-card-text>
+        <v-form class="mx-5">
           <v-text-field
-            v-model="first"
-            label="Nombre de la ultima vacuna aplicada"
+            label="Nombre de tu mascota"
             outlined
-          >
-          </v-text-field>
-        </v-col>
-      </v-row>
-
-      <v-switch
-        color="purple"
-        v-model="AlertaNotificacion"
-        label="Alerta De Notificación"
-      ></v-switch>
-
-      <v-row>
-        <v-date-picker v-model="picker" color="green lighten-1"></v-date-picker>
-      </v-row>
-    </v-container>
-  </v-form>
+          ></v-text-field>
+          <v-row align="center" class="ma-0" justify="space between">
+            <v-text-field
+            label="Años"
+            outlined
+            ></v-text-field>
+            <v-text-field
+            label="Meses"
+            outlined
+            ></v-text-field>
+          </v-row>
+          <v-row align="center" class="ma-auto" justify="space between">
+              <v-autocomplete
+                v-model="tipo_mas_selec"
+                @change="tipoMascota"
+                :items="items"
+                label="Tipo de mascota"
+                outlined
+            ></v-autocomplete>
+              <v-autocomplete
+                v-model="values"
+                :items="tipos"
+                Mini
+                Pincher
+                Samoyedo
+                Bulldog
+                Sin raza
+                San Bernardo
+                Coccer
+                Spanic
+                label="Raza"
+                outlined
+              ></v-autocomplete>
+          </v-row>
+          <v-row align="center" class="ma-0" justify="space between">
+          <v-switch
+            label="Vacunado anteriormente"
+            color="green"
+            v-model="AlertaNotificacion"
+          ></v-switch>
+          </v-row>
+          <v-text-field
+            label="Ultima vacuna aplicada"
+            outlined
+          ></v-text-field>
+          <v-row align="center" class="ma-0" justify="space between">
+    <v-menu
+      ref="menu"
+      v-model="menu"
+      :close-on-content-click="false"
+      transition="scale-transition"
+      offset-y
+      min-width="auto"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-text-field
+          v-model="date"
+          label="Fecha de ultima vacuna"
+          prepend-icon="mdi-calendar"
+          readonly
+          v-bind="attrs"
+          v-on="on"
+        ></v-text-field>
+      </template>
+      <v-date-picker
+        v-model="date"
+        :active-picker.sync="activePicker"
+        :max="(new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)"
+        min="1950-01-01"
+        @change="save"
+      ></v-date-picker>
+    </v-menu>
+    </v-row> 
+      <v-card-actions class="j-center">
+        <v-btn color="success" outlined tile text> Guardar </v-btn>
+      </v-card-actions>
+        </v-form>
+      </v-card-text>
+    </v-card>
+  </div>     
 </template>
 <script>
 export default {
@@ -87,5 +102,26 @@ export default {
     values: ["foo", "bar"],
     value: null,
   }),
+  data: () => ({
+      activePicker: null,
+      date: null,
+      menu: false,
+    }),
+    watch: {
+      menu (val) {
+        val && setTimeout(() => (this.activePicker = 'YEAR'))
+      },
+    },
+    methods: {
+      save (date) {
+        this.$refs.menu.save(date)
+      },
+    },
 };
 </script>
+
+<style>
+.j-center {
+  justify-content: center;
+}
+</style>

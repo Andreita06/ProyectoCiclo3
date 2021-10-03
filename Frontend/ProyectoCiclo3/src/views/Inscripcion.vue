@@ -12,13 +12,11 @@
 
 <script>
 import Formulario from "../components/Formulario.vue";
-import Navegacion from "../components/Navegacion.vue";
 
 export default {
   name: "Inscripcion",
   components: {
     Formulario,
-    Navegacion,
   },
 };
 </script>

@@ -53,6 +53,16 @@
             outlined
           ></v-text-field>
         </v-col>
+        <v-col
+         cols="12"
+          sm="6">
+          <v-btn block color="red">Cancelar</v-btn>
+        </v-col>
+        <v-col
+         cols="12"
+          sm="6">
+          <v-btn block color="blue">Registrarse</v-btn>
+        </v-col>
       </v-row>
     </v-container>
   </v-form>

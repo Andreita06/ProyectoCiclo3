@@ -6,6 +6,17 @@
         <img alt="logo" src="../assets/MascotasVacunadas.jpg" />
       </div>
       <Mascota></Mascota>
+      <v-btn id="bt"
+        class="mx-2"
+        fab
+        dark
+        color="indigo"
+        @click="nuevamascota"
+      >
+        <v-icon dark>
+          mdi-plus
+        </v-icon>
+      </v-btn>
     </v-app>
   </div>
 </template>
@@ -20,7 +31,13 @@ export default {
     Mascota,
     Navegacion,
   },
+  nuevamascota() {
+      this.$refs.Mascota
+    }
 };
 </script>
 <style lang="scss">
+  #bt {
+    justify-content: center
+  }
 </style>
