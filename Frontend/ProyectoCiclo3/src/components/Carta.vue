@@ -31,6 +31,23 @@
 
 <script>
 export default {
+//   data: () => {
+//     return {};
+//   },
+//   methods: {},
+//   created: () => {
+//     //Acceder a las acciones del store
+//     store.dispatch("getMascota");
+//   },
+//   //Propiedad computada
+//   computed: {
+//     mascota: () => {
+//       return store.state.mascota; //Se cargan las tarjetas con la información de las mascotas.
+//     },
+//   },
+// };
+
+
   props: {
     nombreMascota: String,
     ultimaFechaV: String,

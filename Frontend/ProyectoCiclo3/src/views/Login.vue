@@ -7,7 +7,7 @@
       <h1>INICIO SESIÓN</h1>
       <v-img src="../assets/MascotasVacunadas.jpg" height="180" contain></v-img>
       <!-- -->
-      <v-card-tex>
+      <v-card-text>
         <v-form class="mx-5">
           <v-text-field
             label="Usuario"
@@ -20,7 +20,7 @@
             outlined
           ></v-text-field>
         </v-form>
-      </v-card-tex>
+      </v-card-text>
       <!-- -->
       <div class="contenedor">
         <!-- -->
@@ -53,6 +53,7 @@ export default {
   },
   // Los diferentes metodos
   methods: {
+    // 
     login() {
       console.log("Vereficando credenciales..");
       this.$router.push("/consulta");
@@ -64,7 +65,7 @@ export default {
   },
   created: ()=>{
 
-    store.dispatch('getMascota')
+    //store.dispatch('getMascota')
 
   }
 };

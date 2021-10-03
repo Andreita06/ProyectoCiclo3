@@ -1,7 +1,6 @@
 <template>
   <div class="consulta">
-    <!-- <Navegacion></Navegacion> -->
-    <navegacion />
+    <Navegacion></Navegacion> 
     <v-app>
       <div class="home">
         <img alt="logo" src="../assets/MascotasVacunadas.jpg" />
@@ -40,14 +39,13 @@
 </template>
 
 <script>
-//import Busqueda from '../components/Busqueda.vue'
+
 import Navegacion from "../components/Navegacion.vue";
 import Carta from "../components/Carta.vue";
 
 export default {
   name: "Consulta",
   components: {
-    //Busqueda,
     Navegacion,
     Carta,
   },

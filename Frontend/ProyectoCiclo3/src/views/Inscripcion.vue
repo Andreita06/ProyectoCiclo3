@@ -1,6 +1,6 @@
 <template>
   <div class="inscripcion">
-    <Navegacion></Navegacion>
+    <Navegacion ></Navegacion>
     <v-app>
       <div class="home">
         <img alt="logo" src="../assets/MascotasVacunadas.jpg" />
