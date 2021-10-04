@@ -1,28 +1,24 @@
 const mongoose = require('mongoose');
-const schema = mongoose.Schema;
 
-var mascotaSchema = new schema({
-    id_mascota: {
-        type: Integer
-    },nombre_mascota: {
+const Schema = mongoose.Schema;
+
+const mascotaSchema = new Schema({
+    tipo_mascota:{
+        type: String
+    },
+    nombre_mascota: {
         type: String
     },
     edad_mascota: {
-        type: String
-    },
-    edad: {
         type: Number
     },
     raza_mascota: {
         type: String
     },
-    descripcion_mascota: {
-        type: String
+    alergias:{
+        type: Boolean
     },
-    ultima_vacuna_mascota: {
-        type: String
-    },
-    fecha_ultima_vacuna_mascota: {
+    desc_alergia:{
         type: String
     }
 },{

@@ -1,19 +1,15 @@
 const mongoose = require('mongoose');
-const schema = mongoose.Schema;
 
-var usuarioSchema = new schema({
+const Schema = mongoose.Schema;
+
+const usuarioSchema = new Schema({
     identificacion: {
-        type: Integer
-    },primer_nombre: {
-        type: String
-    },
-    segundo_nombre: {
-        type: String
-    },
-    primer_apellido: {
         type: Number
     },
-    segundo_apellido: {
+    nombres: {
+        type: String
+    },
+    apellidos: {
         type: String
     },
     direccion: {
