@@ -1,3 +1,4 @@
+// Se crea el modelo alerta
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;

@@ -1,5 +1,6 @@
 //Importar mongoose
 const mongoose = require('mongoose');
+
 //Importar url de conexión a la BD
 const database = require('./urlDatabase');
 

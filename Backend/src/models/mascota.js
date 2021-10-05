@@ -1,3 +1,4 @@
+// Se crea el modelo de mascotas
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;

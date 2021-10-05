@@ -1,12 +1,12 @@
+// Se crea la clase para administrar los usuarios
 const usuario = require('../models/usuario');
 
 class UsuarioController {
 
     constructor() {
     }
-
+    // Para registar los usuarios
     registrar(req, res) {
-
         usuario.create(req.body, (error, data) => {
             if (error) {
                 res.status(500).json({ error });
@@ -18,7 +18,6 @@ class UsuarioController {
 
     //Método y ruta para consultar todos los usuarios
     getUsuarios(req, res) {
-
         usuario.find((error, data) => {
             if (error) {
                 res.status(500).json({ error });
