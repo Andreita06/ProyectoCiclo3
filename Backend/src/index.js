@@ -6,18 +6,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 //Importar url de conexión a la BD
 const DatabaseConnection = require('./database/databaseConnection');
-<<<<<<< HEAD
-=======
-const UsuarioRouter = require('./routers/usuarioRouter');
->>>>>>> f76e034c8ebdf1f6d6a35fe124c36103aca4fceb
 // Importando otras rutas
 // const AlertaController = require('./controllers/alertaController');
 // const MascotaController = require('./controllers/mascotaController');
 // const SesionController = require('./controllers/sesionController');
-<<<<<<< HEAD
 const UsuarioRouter = require('./routers/usuarioRouter');
-=======
->>>>>>> f76e034c8ebdf1f6d6a35fe124c36103aca4fceb
 // const VacunaController = require('./controllers/vacunaController');
 
 class Server {
@@ -53,11 +46,7 @@ class Server {
         // const alertaController = new AlertaController();
         // const mascotaController = new MascotaController();
         // const sesionController = new SesionController();
-<<<<<<< HEAD
         const usuarioController = new UsuarioRouter();
-=======
-        //const usuarioController = new UsuarioController();
->>>>>>> f76e034c8ebdf1f6d6a35fe124c36103aca4fceb
         // const vacunaController = new VacunaController();
         const usuarioRouter = new UsuarioRouter();
 
@@ -67,11 +56,7 @@ class Server {
         // this.app.use(alertaController);
         // this.app.use(mascotaController);
         // this.app.use(sesionController);
-<<<<<<< HEAD
         this.app.use(usuarioController.router);
-=======
-        this.app.use(usuarioRouter.router);
->>>>>>> f76e034c8ebdf1f6d6a35fe124c36103aca4fceb
         // this.app.use(vacunaController);
 
         //Levantar el servidor/correr el servidor
