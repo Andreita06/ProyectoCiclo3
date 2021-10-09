@@ -46,7 +46,6 @@ class Server {
         // const alertaController = new AlertaController();
         // const mascotaController = new MascotaController();
         // const sesionController = new SesionController();
-        const usuarioController = new UsuarioRouter();
         // const vacunaController = new VacunaController();
         const usuarioRouter = new UsuarioRouter();
 
@@ -56,7 +55,7 @@ class Server {
         // this.app.use(alertaController);
         // this.app.use(mascotaController);
         // this.app.use(sesionController);
-        this.app.use(usuarioController.router);
+        this.app.use(usuarioRouter.router);
         // this.app.use(vacunaController);
 
         //Levantar el servidor/correr el servidor
