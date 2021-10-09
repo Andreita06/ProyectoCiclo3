@@ -1,5 +1,5 @@
 // Se crea la clase para administrar las mascotas
-const mascotas = require('../models/mascotas');
+const mascotas = require('../models/mascota');
 
 class MascotasController {
 

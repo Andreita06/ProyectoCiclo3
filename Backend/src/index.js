@@ -7,11 +7,11 @@ const mongoose = require('mongoose');
 //Importar url de conexión a la BD
 const DatabaseConnection = require('./database/databaseConnection');
 // Importando otras rutas
-// const AlertaController = require('./controllers/alertaController');
-// const MascotaController = require('./controllers/mascotaController');
-// const SesionController = require('./controllers/sesionController');
+// const AlertaRouter = require('./routers/alertaRouter');
+const MascotaRouter = require('./routers/mascotaRouter');
+// const SesionRouter = require('./routers/sesionRouter');
 const UsuarioRouter = require('./routers/usuarioRouter');
-// const VacunaController = require('./controllers/vacunaController');
+// const VacunaRouter = require('./routers/vacunaRouter');
 
 class Server {
     //constructor
@@ -43,20 +43,20 @@ class Server {
 
         // Creando rutas
      
-        // const alertaController = new AlertaController();
-        // const mascotaController = new MascotaController();
-        // const sesionController = new SesionController();
-        // const vacunaController = new VacunaController();
+        // const alertaRouter = new AlertaRouter();
+        const mascotaRouter = new MascotaRouter();
+        // const sesionRouter = new SesionRouter();
+        // const vacunaRouter = new VacunaRouter();
         const usuarioRouter = new UsuarioRouter();
 
         //añadir las rutas al servidor
         this.app.use(router);
   
-        // this.app.use(alertaController);
-        // this.app.use(mascotaController);
-        // this.app.use(sesionController);
+        // this.app.use(alertaRouter.router);
+        this.app.use(mascotaRouter.router);
+        // this.app.use(sesionRouter.router);
         this.app.use(usuarioRouter.router);
-        // this.app.use(vacunaController);
+        // this.app.use(vacunaRouter.router);
 
         //Levantar el servidor/correr el servidor
         this.app.listen(this.app.get('port'), () => {
