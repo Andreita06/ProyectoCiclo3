@@ -1,23 +1,23 @@
 // Clase tomada del ejercicio trabajo en clase
 //Importar express
 const express = require('express');
-// const serverRouter = require('./routers/serverRouter');
+
 //Importar mongoose
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 //Importar url de conexión a la BD
-// const DatabaseConnection = require('./database/databaseConnection');
+const DatabaseConnection = require('./database/databaseConnection');
 // Importando otras rutas
 // const AlertaController = require('./controllers/alertaController');
 // const MascotaController = require('./controllers/mascotaController');
 // const SesionController = require('./controllers/sesionController');
-// const UsuarioController = require('./controllers/usuarioController');
+const UsuarioController = require('./controllers/usuarioController');
 // const VacunaController = require('./controllers/vacunaController');
 
 class Server {
     //constructor
     constructor() {
         //Construir objeto de conexión a la BD
-        // const dbConnection = new DatabaseConnection();
+        const dbConnection = new DatabaseConnection();
 
         // Crear app express
         this.app = express();
@@ -42,20 +42,20 @@ class Server {
         });
 
         // Creando rutas
-        // const serverR = new serverRouter.default();
+     
         // const alertaController = new AlertaController();
         // const mascotaController = new MascotaController();
         // const sesionController = new SesionController();
-        // const usuarioController = new UsuarioController();
+        const usuarioController = new UsuarioController();
         // const vacunaController = new VacunaController();
 
         //añadir las rutas al servidor
         this.app.use(router);
-        // this.app.use(serverR.router);
+  
         // this.app.use(alertaController);
         // this.app.use(mascotaController);
         // this.app.use(sesionController);
-        // this.app.use(usuarioController);
+        this.app.use(usuarioController);
         // this.app.use(vacunaController);
 
         //Levantar el servidor/correr el servidor
