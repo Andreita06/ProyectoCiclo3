@@ -1,4 +1,3 @@
-// Clase tomada del ejercicio trabajo en clase
 //Importar express
 const express = require('express');
 
@@ -7,11 +6,11 @@ const mongoose = require('mongoose');
 //Importar url de conexión a la BD
 const DatabaseConnection = require('./database/databaseConnection');
 // Importando otras rutas
-// const AlertaRouter = require('./routers/alertaRouter');
+const AlertaRouter = require('./routers/alertaRouter');
 const MascotaRouter = require('./routers/mascotaRouter');
-// const SesionRouter = require('./routers/sesionRouter');
+const SesionRouter = require('./routers/sesionRouter');
 const UsuarioRouter = require('./routers/usuarioRouter');
-// const VacunaRouter = require('./routers/vacunaRouter');
+const VacunaRouter = require('./routers/vacunaRouter');
 
 class Server {
     //constructor
@@ -38,25 +37,25 @@ class Server {
         const router = express.Router();
         router.get('/', (req, res) => {
             console.log("Nueva conexión");
-            res.status(200).json({ message: "Bienvenido to Pet Vaccine!" });
+            res.status(200).json({ message: "Bienvenido a Vacunación Mascotas!" });
         });
 
         // Creando rutas
      
         // const alertaRouter = new AlertaRouter();
         const mascotaRouter = new MascotaRouter();
-        // const sesionRouter = new SesionRouter();
-        // const vacunaRouter = new VacunaRouter();
+        const sesionRouter = new SesionRouter();
+        const vacunaRouter = new VacunaRouter();
         const usuarioRouter = new UsuarioRouter();
 
         //añadir las rutas al servidor
         this.app.use(router);
   
-        // this.app.use(alertaRouter.router);
+        this.app.use(alertaRouter.router);
         this.app.use(mascotaRouter.router);
-        // this.app.use(sesionRouter.router);
+        this.app.use(sesionRouter.router);
         this.app.use(usuarioRouter.router);
-        // this.app.use(vacunaRouter.router);
+        this.app.use(vacunaRouter.router);
 
         //Levantar el servidor/correr el servidor
         this.app.listen(this.app.get('port'), () => {
