@@ -75,11 +75,12 @@ export default {
       };
       if (this.$refs.form.validate()) {
         axios.get("http://localhost:3000/login", datos).then (res =>{
-          console.log("sesion iniciada");
+          
           alert("Bienvenido")
-          if (datos.mensaje === "identificación / contraseña incorrectos"){
+          if (res.datos.bandera === "false"){
             alert("Datos Incorrectos")
           }else{
+            console.log("sesion iniciada");
             this.$router.push("/consulta");
           }
           
