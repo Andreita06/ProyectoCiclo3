@@ -30,7 +30,7 @@ class MascotasController {
     // Actualizar Mascota
     setMascotas(req, res) {
         //Capturar los datos del cuerpo de la petición
-        let { tipo_mascota, nombre_mascota, edad_mascota, raza_mascota, alergias, desc_alergia } = req.body;
+        let { id, tipo_mascota, nombre_mascota, edad_mascota, raza_mascota, alergias, desc_alergia } = req.body;
         //Crear un objeto con los datos capturados del cuerpo de la petición. Encargado de actualizar en el método update
         let objMascotas = {
             tipo_mascota, nombre_mascota, edad_mascota, raza_mascota, alergias, desc_alergia
