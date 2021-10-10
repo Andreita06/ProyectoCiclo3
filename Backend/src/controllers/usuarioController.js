@@ -57,6 +57,27 @@ class UsuarioController {
             }
         });
     }
+
+    login(req, res) {
+        let correo = req.body.email;
+        let contra = req.body.password;
+        usuario.findOne({email: correo}, (error, data) => {
+          if (error) {
+            res.status(500).json({ mensaje: "error" });
+          } else if (data==null) {
+            res.status(200).json({ mensaje: "Usuario no registrado" });
+          } else{
+            if (contra === data.password) {
+              res.status(200).json({
+                mensaje: "exito",
+                data,
+              });
+            } else {
+              res.status(200).json({ mensaje: "Email / contraseña incorrectos" });
+            }
+          }
+        });
+      }
 }
 
 module.exports = UsuarioController;
