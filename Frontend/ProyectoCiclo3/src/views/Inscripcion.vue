@@ -1,12 +1,16 @@
 <template>
-  <div class="inscripcion">
-    <Navegacion ></Navegacion>
+  
+  <div class="container text-center">
+    <div class="container">
+  <!--<div class="inscripcion">-->
+    
     <v-app>
       <div class="home">
-        <img alt="logo" src="../assets/MascotasVacunadas.jpg" />
+        <img class="logo" alt="logo" src="../assets/MascotasVacunadas.jpg" />
       </div>
       <Formulario></Formulario>
     </v-app>
+  </div>
   </div>
 </template>
 

@@ -1,9 +1,12 @@
 <template>
-  <div class="registrarMascota">
-    <Navegacion></Navegacion>
+  
+    <div class="container text-center">
+    <div class="container">
+  <!--<div class="registrarMascota">-->
+   
     <v-app>
       <div class="home">
-        <img alt="logo" src="../assets/MascotasVacunadas.jpg" />
+        <img class="logo" alt="logo" src="../assets/MascotasVacunadas.jpg" />
       </div>
       <Mascota></Mascota>
       <v-btn id="bt"
@@ -18,6 +21,7 @@
         </v-icon>
       </v-btn>
     </v-app>
+  </div>
   </div>
 </template>
 
