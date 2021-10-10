@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 //Importar url de conexión a la BD
 const DatabaseConnection = require('./database/databaseConnection');
 // Importando otras rutas
-const AlertaRouter = require('./routers/alertaRouter');
+// const AlertaRouter = require('./routers/alertaRouter');
 const MascotaRouter = require('./routers/mascotaRouter');
 const SesionRouter = require('./routers/sesionRouter');
 const UsuarioRouter = require('./routers/usuarioRouter');
@@ -51,7 +51,7 @@ class Server {
         //añadir las rutas al servidor
         this.app.use(router);
   
-        this.app.use(alertaRouter.router);
+        // this.app.use(alertaRouter.router);
         this.app.use(mascotaRouter.router);
         this.app.use(sesionRouter.router);
         this.app.use(usuarioRouter.router);
