@@ -109,7 +109,7 @@ export default {
         contraseña: this.clave,
       };
       if (this.$refs.form.validate()) {
-        axios.post("http://localhost:3000/usuarios", datos).then (res =>{
+        axios.post("http://localhost:3000/login", datos).then (res =>{
           console.log("Usuario registrado");
         }).catch((error)=>{
           console.log("Error")
