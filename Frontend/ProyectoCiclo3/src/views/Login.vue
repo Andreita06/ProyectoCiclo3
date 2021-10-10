@@ -1,6 +1,7 @@
 <template>
   <!-- Contenedor principal de vista -->
   <!-- -->
+  <v-form ref="form">
   <div class="login">
     <v-card id="card" class="mx-auto" width="350">
       <!-- -->
@@ -10,11 +11,13 @@
       <v-card-text>
         <v-form class="mx-5">
           <v-text-field
+            v-model="identificacion"
             label="Usuario"
             placeholder="Número Identificación"
             outlined
           ></v-text-field>
           <v-text-field
+            v-model="clave"
             label="Contraseña"
             placeholder="Contraseña"
             outlined
@@ -42,6 +45,7 @@
       >
     </v-card>
   </div>
+  </v-form>
 </template>
 
 <script>
@@ -49,14 +53,32 @@ import store from "../store/index.js";
 export default {
   // Para datos
   data: () => {
-    return {};
+    return{
+      identificacion: "",
+      clave: "",
+    } 
+    
   },
   // Los diferentes metodos
   methods: {
     // 
+    // login() {
+    //   console.log("Vereficando credenciales..");
+    //   this.$router.push("/consulta");
+    // },
+
     login() {
-      console.log("Vereficando credenciales..");
-      this.$router.push("/consulta");
+      const datos = {
+        identificacion: this.identificacion,
+        clave: this.clave
+      };
+      if (this.$refs.form.validate()) {
+        axios.post("http://localhost:3000/login", datos).then (res =>{
+          console.log("sesion iniciada");
+        }).catch((error)=>{
+          console.log("Error")
+        })
+      }
     },
     registro() {
       console.log("Vereficando credenciales..");

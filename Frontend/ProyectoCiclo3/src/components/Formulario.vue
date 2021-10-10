@@ -17,7 +17,7 @@
               outlined
             ></v-text-field>
             <v-text-field
-              v-model="identificación"
+              v-model="identificacion"
               :rules="Rules"
               label="Numero de identificación"
               outlined
@@ -99,17 +99,17 @@ export default {
     registar() {
       const datos = {
         identificacion: this.identificacion,
-        primernombre: this.nombres,
-        primerapellido: this.apellido,
+        primernombre: this.primernombre,
+        primerapellido: this.primerapellido,
         segundonombre: this.segundonombre,
         segundoapellido: this.segundoapellido,
         direccion: this.dirección,
         correo: this.correo,
         celular: this.celular,
-        contraseña: this.clave,
+        clave: this.clave,
       };
       if (this.$refs.form.validate()) {
-        axios.post("http://localhost:3000/login", datos).then (res =>{
+        axios.post("http://localhost:3000/usuario", datos).then (res =>{
           console.log("Usuario registrado");
         }).catch((error)=>{
           console.log("Error")
