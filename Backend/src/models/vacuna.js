@@ -8,6 +8,9 @@ const vacunaSchema = new Schema({
     },
     fecha_ult_vacuna: {
         type: Date
+    },
+    notificacion: {
+        type: Boolean
     }  
 },{
     collection: 'vacunas'
