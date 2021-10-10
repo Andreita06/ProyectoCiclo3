@@ -31,9 +31,11 @@
 
 <script>
 export default {
-//   data: () => {
-//     return {};
-//   },
+  data: () => {
+    return {
+      AlertaNotificacion: ""
+    };
+  },
 //   methods: {},
 //   created: () => {
 //     //Acceder a las acciones del store

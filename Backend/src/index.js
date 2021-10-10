@@ -9,6 +9,8 @@ const DatabaseConnection = require('./database/databaseConnection');
 const MascotaRouter = require('./routers/mascotaRouter');
 const UsuarioRouter = require('./routers/usuarioRouter');
 const VacunaRouter = require('./routers/vacunaRouter');
+//Importar cors
+const cors = require("cors");
 
 class Server {
     //constructor
@@ -30,6 +32,7 @@ class Server {
 
         //Indicar que las solicitudes http se trabajará en JSON
         this.app.use(express.json());
+        this.app.use(cors());
 
         // Rutas
         const router = express.Router();
