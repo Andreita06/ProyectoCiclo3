@@ -18,9 +18,12 @@
           ></v-text-field>
           <v-text-field
             v-model="clave"
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            :type="show1 ? 'text' : 'password'"
             label="Contraseña"
             placeholder="Contraseña"
             outlined
+             @click:append="show1 = !show1"
           ></v-text-field>
         </v-form>
       </v-card-text>
