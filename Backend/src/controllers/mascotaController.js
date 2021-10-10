@@ -16,6 +16,19 @@ class MascotasController {
         });
     }
 
+    //Método para consultar mascota por ID
+    
+    consultarMascotaId(req, res) {
+        let id = req.params.id;
+        mascotas.findById(id, (error, data) => {
+            if (error) {
+                res.status(500).json({ error });
+            } else {
+                res.status(200).json(data);
+            }
+        });
+    }
+
     //Método y ruta para consultar todos los mascotas
     getMascotas(req, res) {
         mascotas.find((error, data) => {
@@ -47,7 +60,7 @@ class MascotasController {
     
     // Eliminar mascotas
     deleteMascotas(req, res) {
-        let { id } = req.body;
+        let id = req.params.id;
 
         //Eliminar una mascotas por ID
         mascotas.findByIdAndRemove(id, (error, data) => {

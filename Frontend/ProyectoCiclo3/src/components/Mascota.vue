@@ -4,11 +4,13 @@
       <v-card-text>
         <v-form class="mx-5">
           <v-text-field
+            v-model="nombre"
             label="Nombre de tu mascota"
             outlined
           ></v-text-field>
-          <v-row align="center" class="ma-0" justify="space between">
+          <v-row align="center" class="ma-0" >
             <v-text-field
+            v-model="edad"
             label="Años"
             outlined
             ></v-text-field>
@@ -17,17 +19,16 @@
             outlined
             ></v-text-field>
           </v-row>
-          <v-row align="center" class="ma-auto" justify="space between">
+          <v-row align="center" class="ma-auto">
               <v-autocomplete
-                v-model="tipo_mas_selec"
-                @change="tipoMascota"
-                :items="items"
+                v-model="values"
+                :items="tipos"
                 label="Tipo de mascota"
                 outlined
             ></v-autocomplete>
               <v-autocomplete
                 v-model="values"
-                :items="tipos"
+                :items="razas"
                 Mini
                 Pincher
                 Samoyedo
@@ -40,7 +41,7 @@
                 outlined
               ></v-autocomplete>
           </v-row>
-          <v-row align="center" class="ma-0" justify="space between">
+          <v-row align="center" class="ma-0">
           <v-switch
             label="Vacunado anteriormente"
             color="green"
@@ -51,7 +52,7 @@
             label="Ultima vacuna aplicada"
             outlined
           ></v-text-field>
-          <v-row align="center" class="ma-0" justify="space between">
+          <v-row align="center" class="ma-0">
     <v-menu
       ref="menu"
       v-model="menu"
@@ -80,7 +81,7 @@
     </v-menu>
     </v-row> 
       <v-card-actions class="j-center">
-        <v-btn color="success" outlined tile text> Guardar </v-btn>
+        <v-btn color="success" outlined tile text @click="Guardar"> Guardar </v-btn>
       </v-card-actions>
         </v-form>
       </v-card-text>
@@ -88,10 +89,17 @@
   </div>     
 </template>
 <script>
+import axios from "axios";
 export default {
   data: () => ({
-    items: ["Perro", "Gato"],
-    tipos: [
+    values: null,
+    nombre: "",
+    edad: "",
+    activePicker: null,
+    date: null,
+    menu: false,
+    tipos: ["Perro", "Gato"],
+    razas: [
       "mini Pincher",
       "Samoyedo",
       "Bulldog",
@@ -99,14 +107,7 @@ export default {
       "San Bernardo",
       "Coccer Spanic",
     ],
-    values: ["foo", "bar"],
-    value: null,
   }),
-  data: () => ({
-      activePicker: null,
-      date: null,
-      menu: false,
-    }),
     watch: {
       menu (val) {
         val && setTimeout(() => (this.activePicker = 'YEAR'))
@@ -116,6 +117,19 @@ export default {
       save (date) {
         this.$refs.menu.save(date)
       },
+      Guardar() {
+      const datos = {
+        nombre: this.nombre,
+        edad: this.edad,
+      };
+      if (this.$refs.form.validate()) {
+        axios.post("http://localhost:3000/mascota", datos).then (res =>{
+          console.log("mascota registrada");
+        }).catch((error)=>{
+          console.log("Error")
+        })
+      }
+    },
     },
 };
 </script>

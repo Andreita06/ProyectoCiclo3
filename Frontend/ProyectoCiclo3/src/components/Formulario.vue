@@ -84,7 +84,7 @@ export default {
       segundonombre: "",
       primerapellido: "",
       segundoapellido: "",
-      identificación: "",
+      identificacion: "",
       correo: "",
       contraseña: "",
       dirección: "",
