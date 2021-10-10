@@ -42,7 +42,7 @@ class Server {
 
         // Creando rutas
      
-        // const alertaRouter = new AlertaRouter();
+        const alertaRouter = new AlertaRouter();
         const mascotaRouter = new MascotaRouter();
         const sesionRouter = new SesionRouter();
         const vacunaRouter = new VacunaRouter();
