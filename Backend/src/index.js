@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const DatabaseConnection = require('./database/databaseConnection');
 // Importando otras rutas
 const MascotaRouter = require('./routers/mascotaRouter');
-const SesionRouter = require('./routers/sesionRouter');
 const UsuarioRouter = require('./routers/usuarioRouter');
 const VacunaRouter = require('./routers/vacunaRouter');
 
@@ -42,14 +41,12 @@ class Server {
         // Creando rutas
     
         const mascotaRouter = new MascotaRouter();
-        const sesionRouter = new SesionRouter();
         const vacunaRouter = new VacunaRouter();
         const usuarioRouter = new UsuarioRouter();
 
         //añadir las rutas al servidor
         this.app.use(router);
         this.app.use(mascotaRouter.router);
-        this.app.use(sesionRouter.router);
         this.app.use(usuarioRouter.router);
         this.app.use(vacunaRouter.router);
 
