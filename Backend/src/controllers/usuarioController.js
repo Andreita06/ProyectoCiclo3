@@ -73,7 +73,10 @@ class UsuarioController {
                 data,
               });
             } else {
-              res.status(200).json({ mensaje: "identificación / contraseña incorrectos" });
+              res.status(200).json({ 
+                  mensaje: "identificación / contraseña incorrectos",
+                  bandera: "false"
+                });
             }
           }
         });
