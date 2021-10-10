@@ -59,7 +59,8 @@ export default {
   data: () => {
     return{
       identificacion: "",
-      clave: ""
+      clave: "",
+      show1: false,
     } 
     
   },
