@@ -73,7 +73,7 @@ class UsuarioController {
                 data,
               });
             } else {
-              res.status(200).json({ mensaje: "Email / contraseña incorrectos" });
+              res.status(200).json({ mensaje: "identificación / contraseña incorrectos" });
             }
           }
         });
