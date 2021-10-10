@@ -59,9 +59,9 @@ class UsuarioController {
     }
 
     login(req, res) {
-        let email = req.body.correo;
+        let identificacion = req.body.identificacion;
         let contra = req.body.clave;
-        usuario.findOne({correo: email}, (error, data) => {
+        usuario.findOne({identificacion: identificacion}, (error, data) => {
           if (error) {
             res.status(500).json({ mensaje: "error" });
           } else if (data==null) {
