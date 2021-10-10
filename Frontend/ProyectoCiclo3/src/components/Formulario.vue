@@ -99,12 +99,14 @@ export default {
     registar() {
       const datos = {
         identificacion: this.identificacion,
-        nombres: this.nombres,
-        apellidos: this.apellido,
-        direccion: ,
-        correo: "santiagohhhh@hotmail.com",
-        celular: "321",
-        clave: "0000",
+        primernombre: this.nombres,
+        primerapellido: this.apellido,
+        segundonombre: this.segundonombre,
+        segundoapellido: this.segundoapellido,
+        direccion: this.dirección,
+        correo: this.correo,
+        celular: this.celular,
+        contraseña: this.clave,
       };
       if (this.$refs.form.validate()) {
         axios.post("http://localhost:3000/usuarios", datos).then (res =>{
