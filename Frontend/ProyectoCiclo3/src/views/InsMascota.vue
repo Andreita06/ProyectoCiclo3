@@ -9,7 +9,7 @@
         <img class="logo" alt="logo" src="../assets/MascotasVacunadas.jpg" />
       </div>
       <Mascota></Mascota>
-      <v-btn id="bt"
+      <!-- <v-btn id="bt"
         class="mx-2"
         fab
         dark
@@ -19,7 +19,7 @@
         <v-icon dark>
           mdi-plus
         </v-icon>
-      </v-btn>
+      </v-btn> -->
     </v-app>
   </div>
   </div>
@@ -35,9 +35,9 @@ export default {
     Mascota,
     Navegacion,
   },
-  nuevamascota() {
-      this.$refs.Mascota
-    }
+  // nuevamascota() {
+  //     this.$refs.Mascota
+  //   }
 };
 </script>
 <style lang="scss">
