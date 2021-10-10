@@ -7,7 +7,7 @@
             label="Nombre de tu mascota"
             outlined
           ></v-text-field>
-          <v-row align="center" class="ma-0" justify="space between">
+          <v-row align="center" class="ma-0" >
             <v-text-field
             label="Años"
             outlined
@@ -17,17 +17,16 @@
             outlined
             ></v-text-field>
           </v-row>
-          <v-row align="center" class="ma-auto" justify="space between">
+          <v-row align="center" class="ma-auto">
               <v-autocomplete
-                v-model="tipo_mas_selec"
-                @change="tipoMascota"
-                :items="items"
+                v-model="values"
+                :items="tipos"
                 label="Tipo de mascota"
                 outlined
             ></v-autocomplete>
               <v-autocomplete
                 v-model="values"
-                :items="tipos"
+                :items="razas"
                 Mini
                 Pincher
                 Samoyedo
@@ -40,7 +39,7 @@
                 outlined
               ></v-autocomplete>
           </v-row>
-          <v-row align="center" class="ma-0" justify="space between">
+          <v-row align="center" class="ma-0">
           <v-switch
             label="Vacunado anteriormente"
             color="green"
@@ -51,7 +50,7 @@
             label="Ultima vacuna aplicada"
             outlined
           ></v-text-field>
-          <v-row align="center" class="ma-0" justify="space between">
+          <v-row align="center" class="ma-0">
     <v-menu
       ref="menu"
       v-model="menu"
@@ -90,8 +89,12 @@
 <script>
 export default {
   data: () => ({
-    items: ["Perro", "Gato"],
-    tipos: [
+    values: null,
+    activePicker: null,
+    date: null,
+    menu: false,
+    tipos: ["Perro", "Gato"],
+    razas: [
       "mini Pincher",
       "Samoyedo",
       "Bulldog",
@@ -99,14 +102,7 @@ export default {
       "San Bernardo",
       "Coccer Spanic",
     ],
-    values: ["foo", "bar"],
-    value: null,
   }),
-  data: () => ({
-      activePicker: null,
-      date: null,
-      menu: false,
-    }),
     watch: {
       menu (val) {
         val && setTimeout(() => (this.activePicker = 'YEAR'))
