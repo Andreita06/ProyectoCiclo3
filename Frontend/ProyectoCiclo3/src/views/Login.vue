@@ -56,7 +56,7 @@ export default {
   data: () => {
     return{
       identificacion: "",
-      clave: "",
+      clave: ""
     } 
     
   },
@@ -74,21 +74,27 @@ export default {
         clave: this.clave
       };
       if (this.$refs.form.validate()) {
-        axios.post("http://localhost:3000/login", datos).then (res =>{
+        axios.get("http://localhost:3000/login", datos).then (res =>{
           console.log("sesion iniciada");
+          alert("Bienvenido")
+          if (datos.mensaje === "identificación / contraseña incorrectos"){
+            alert("Datos Incorrectos")
+          }else{
+            this.$router.push("/consulta");
+          }
+          
         }).catch((error)=>{
-          console.log("Error")
+          console.log("Error");
+          
         })
       }
     },
     registro() {
-      console.log("Vereficando credenciales..");
+      console.log("Verificando credenciales..");
       this.$router.push("/inscripcion");
     },
   },
   created: ()=>{
-
-    //store.dispatch('getMascota')
 
   }
 };
