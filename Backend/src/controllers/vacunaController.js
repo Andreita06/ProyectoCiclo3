@@ -16,8 +16,8 @@ class VacunaController{
         });
     }
 
-     //Método y ruta para consultar vacuna
-     getVacuna(req, res) {
+    //Método y ruta para consultar vacuna
+    getVacuna(req, res) {
         vacuna.find((error, data) => {
             if (error) {
                 res.status(500).json({ error });
