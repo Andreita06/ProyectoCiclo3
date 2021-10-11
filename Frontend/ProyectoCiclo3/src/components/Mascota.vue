@@ -4,11 +4,13 @@
       <v-card-text>
         <v-form class="mx-5">
           <v-text-field
+            v-model="nombre"
             label="Nombre de tu mascota"
             outlined
           ></v-text-field>
           <v-row align="center" class="ma-0" >
             <v-text-field
+            v-model="edad"
             label="Años"
             outlined
             ></v-text-field>
@@ -79,7 +81,7 @@
     </v-menu>
     </v-row> 
       <v-card-actions class="j-center">
-        <v-btn color="success" outlined tile text> Guardar </v-btn>
+        <v-btn color="success" outlined tile text @click="Guardar"> Guardar </v-btn>
       </v-card-actions>
         </v-form>
       </v-card-text>
@@ -87,9 +89,12 @@
   </div>     
 </template>
 <script>
+import axios from "axios";
 export default {
   data: () => ({
     values: null,
+    nombre: "",
+    edad: "",
     activePicker: null,
     date: null,
     menu: false,
@@ -112,6 +117,19 @@ export default {
       save (date) {
         this.$refs.menu.save(date)
       },
+      Guardar() {
+      const datos = {
+        nombre: this.nombre,
+        edad: this.edad,
+      };
+      if (this.$refs.form.validate()) {
+        axios.post("http://localhost:3000/mascota", datos).then (res =>{
+          console.log("mascota registrada");
+        }).catch((error)=>{
+          console.log("Error")
+        })
+      }
+    },
     },
 };
 </script>
