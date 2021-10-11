@@ -101,6 +101,7 @@ export default {
         })
       }
     },
+  
     registro() {
       console.log("Verificando credenciales..");
       this.$router.push("/inscripcion");
