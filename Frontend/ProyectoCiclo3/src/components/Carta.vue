@@ -18,7 +18,7 @@
 
     <v-card-actions class="j-center">
       <v-btn color="primary" outlined tile text> Editar </v-btn>
-      <v-btn color="error" outlined tile text @click='eliminar'> Eliminar </v-btn>
+      <v-btn color="error" outlined tile text v-on:click='eliminar'> Eliminar </v-btn>
     </v-card-actions>
 
     <v-switch
@@ -59,17 +59,17 @@ export default {
   methods: {
     editar() {
       console.log("editar");
-    },
-    eliminar() {
-      //console.log("eliminar");
-      let url = "http://localhost:3000/mascota" + this.id
-      axios.delete(url).then(res =>{
-        console.log(res.data)
-      }).catch(err =>{
-        console.log(err)
-      })
-      this.dialog = false
-    },
+    }//,
+    //eliminar() {
+    //  console.log("eliminar");
+    //  let url = "http://localhost:3000/mascota" + this.id
+    //  axios.delete(url).then(res =>{
+    //    console.log(res.data)
+    //  }).catch(err =>{
+    //    console.log(err)
+    //  })
+    //  this.dialog = false
+    //},
   },
 };
 </script>

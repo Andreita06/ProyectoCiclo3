@@ -41,8 +41,8 @@
           </v-row>
           <v-row align="center" class="ma-0">
           <v-switch
-            label="Vacunado anteriormente"
-            color="green"
+            label="Alerta Notificación"
+            color="purple"
             v-model="AlertaNotificacion"
           ></v-switch>
           </v-row>

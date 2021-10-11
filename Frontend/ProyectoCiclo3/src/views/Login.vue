@@ -72,27 +72,39 @@ export default {
     //   this.$router.push("/consulta");
     // },
 
-    login() {
-      const datos = {
+    async login() {
+      let datos = {
         identificacion: this.identificacion,
         clave: this.clave
       };
-      if (this.$refs.form.validate()) {
-        axios.get("http://localhost:3000/login", datos).then (res =>{
-          console.log("sesion iniciada");
-          alert("Bienvenido")
-          if (datos.mensaje === "identificación / contraseña incorrectos"){
-            alert("Datos Incorrectos")
-          }else{
-            this.$router.push("/consulta");
-          }
-          
-        }).catch((error)=>{
-          console.log("Error");
-          
-        })
-      }
+      let badidentificacion= "Usuario no registrado"
+      let badclave= "Identificación / Contraseña incorrectos"
+      axios.post('http://localhost:3000/login', datos).then(res =>{
+        if(res.data.mensaje===badidentificacion){
+          window.alert(badidentificacion)
+        }else if(res.data.mensaje===badclave){
+          window.alert(badclave)
+        }else{
+          console.log(res.data)
+          this.$router.push('/')
+        }
+      }).catch(error=>{console.log(error)})
     },
+
+      //if (this.$refs.form.validate()) {
+       // axios.get("http://localhost:3000/login", datos).then (res =>{
+       //   console.log("sesion iniciada");
+       //   alert("Bienvenido")
+       //   if (datos.mensaje === "identificación / contraseña incorrectos"){
+       //     alert("Datos Incorrectos")
+       //   }else{
+       //     this.$router.push("/consulta");
+       //   }
+       //}).catch((error)=>{
+       // console.log("Error"); 
+       // })
+      //}
+  
     registro() {
       console.log("Verificando credenciales..");
       this.$router.push("/inscripcion");
