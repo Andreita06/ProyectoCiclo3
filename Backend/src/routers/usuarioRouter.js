@@ -21,7 +21,7 @@ class UsuarioRouter{
         this.router.get("/usuario", objUsuarioController.getUsuarios);
         this.router.put("/usuario", objUsuarioController.setUsuario);
         this.router.delete("/usuario", objUsuarioController.deleteUsuario);
-        this.router.get("/login", objUsuarioController.login);
+        this.router.post("/login", objUsuarioController.login);
     }
 
 }

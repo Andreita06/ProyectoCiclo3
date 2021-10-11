@@ -61,6 +61,8 @@ export default {
       identificacion: "",
       clave: "",
       show1: false,
+    // numberr: 0,
+      // datos: {}
     } 
     
   },
@@ -72,24 +74,29 @@ export default {
     //   this.$router.push("/consulta");
     // },
 
-    login() {
+    async login() {
+      const numberr = parseInt(this.identificacion, 10);
       const datos = {
-        identificacion: this.identificacion,
-        clave: this.clave
+        id: numberr,
+        contrasena: this.clave,
       };
       if (this.$refs.form.validate()) {
-        axios.get("http://localhost:3000/login", datos).then (res =>{
+        console.log(datos)
+        axios.post("http://localhost:3000/login", datos).then (res =>{
+          alert("" + res.data.mensaje);          
           
-          alert("Bienvenido")
-          if (res.datos.bandera === "false"){
+          if (res.data.mensaje != "exito"){
+            
             alert("Datos Incorrectos")
+
           }else{
+            alert("Bienvenido")
             console.log("sesion iniciada");
             this.$router.push("/consulta");
           }
           
         }).catch((error)=>{
-          console.log("Error");
+          console.log("Error: " + error.message);
           
         })
       }

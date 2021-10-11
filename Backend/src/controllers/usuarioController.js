@@ -59,12 +59,18 @@ class UsuarioController {
     }
 
     login(req, res) {
-        let identificacion = req.body.identificacion;
-        let contra = req.body.clave;
-        usuario.findOne({identificacion: identificacion}, (error, data) => {
+        let cedula = req.body.id;
+        let contra = req.body.contrasena;
+        console.log(req.body.id)
+        console.log(contra)
+        usuario.findOne({identificacion: cedula}, (error, data) => {
           if (error) {
+            console.log("***********************")
             res.status(500).json({ mensaje: "error" });
+            
           } else if (data==null) {
+              console.log("-----------------------------------")
+              console.log(data)
             res.status(200).json({ mensaje: "Usuario no registrado" });
           } else{
             if (contra === data.clave) {
