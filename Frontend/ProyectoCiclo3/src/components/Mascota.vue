@@ -2,7 +2,7 @@
   <div class="mascota">
     <v-card id="card" class="mx-auto" width="550">
       <v-card-text>
-        <v-form class="mx-5">
+        <v-form ref="form" class="mx-5">
           <v-text-field
             v-model="nombre"
             label="Nombre de tu mascota"
@@ -15,19 +15,20 @@
             outlined
             ></v-text-field>
             <v-text-field
+            v-model="meses"
             label="Meses"
             outlined
             ></v-text-field>
           </v-row>
           <v-row align="center" class="ma-auto">
               <v-autocomplete
-                v-model="values"
+                v-model="tipo"
                 :items="tipos"
                 label="Tipo de mascota"
                 outlined
             ></v-autocomplete>
               <v-autocomplete
-                v-model="values"
+                v-model="raza"
                 :items="razas"
                 Mini
                 Pincher
@@ -49,6 +50,7 @@
           ></v-switch>
           </v-row>
           <v-text-field
+            v-model="ultimavacuna"
             label="Ultima vacuna aplicada"
             outlined
           ></v-text-field>
@@ -92,8 +94,12 @@
 import axios from "axios";
 export default {
   data: () => ({
-    values: null,
+    tipo: null,
+    raza: null,
+    AlertaNotificacion: true,
+    ultimavacuna: "",
     nombre: "",
+    meses: "",
     edad: "",
     activePicker: null,
     date: null,
@@ -121,6 +127,12 @@ export default {
       const datos = {
         nombre: this.nombre,
         edad: this.edad,
+        meses: this.meses,
+        tipo: this.tipo,
+        raza: this.raza,
+        AlertaNotificacion: this.AlertaNotificacion,
+        ultimavacuna: this.ultimavacuna,
+        date: this.date,
       };
       if (this.$refs.form.validate()) {
         axios.post("http://localhost:3000/mascota", datos).then (res =>{

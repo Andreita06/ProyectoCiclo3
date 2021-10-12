@@ -6,10 +6,16 @@ const usuarioSchema = new Schema({
     identificacion: {
         type: Number
     },
-    nombres: {
+    primernombre: {
         type: String
     },
-    apellidos: {
+    segundonombre: {
+        type: String
+    },
+    primerapellido: {
+        type: String
+    },
+    segundopellido: {
         type: String
     },
     direccion: {

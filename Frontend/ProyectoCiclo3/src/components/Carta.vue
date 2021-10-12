@@ -34,7 +34,7 @@ import axios from "axios";
 export default {
   data: () => {
     return {
-      AlertaNotificacion: ""
+      AlertaNotificacion: true
     };
   },
 //   methods: {},
@@ -59,17 +59,17 @@ export default {
   methods: {
     editar() {
       console.log("editar");
-    }//,
-    //eliminar() {
-    //  console.log("eliminar");
-    //  let url = "http://localhost:3000/mascota" + this.id
-    //  axios.delete(url).then(res =>{
-    //    console.log(res.data)
-    //  }).catch(err =>{
-    //    console.log(err)
-    //  })
-    //  this.dialog = false
-    //},
+    },
+    eliminar() {
+     console.log("eliminar");
+     let url = "http://localhost:3000/mascota" + this.id
+     axios.delete(url).then(res =>{
+       console.log(res.data)
+     }).catch(err =>{
+       console.log(err)
+     })
+     this.dialog = false
+    },
   },
 };
 </script>

@@ -29,7 +29,7 @@
               outlined
             ></v-text-field>
             <v-text-field
-              v-model="contraseña"
+              v-model="clave"
               :rules="Rules"
               label="Contraseña"
               outlined
@@ -56,8 +56,8 @@
             <v-text-field v-model="celular" label="Celular" outlined>
             </v-text-field>
             <v-text-field
-              v-model="rcontraseña"
-              :rules="rcontraseñaRules"
+              v-model="contraseña"
+              :rules="Rules"
               label="Repetir contraseña"
               outlined
             ></v-text-field>
@@ -86,10 +86,10 @@ export default {
       segundoapellido: "",
       identificacion: "",
       correo: "",
-      contraseña: "",
+      clave: "",
       dirección: "",
       celular: "",
-      rcontraseña: "",
+      contraseña: "",
       Rules: [(v) => !!v || "El campo debe ser diligenciado"],
       rcontraseñaRules: [(v) => !!v || "El campo debe ser diligenciado"],
     };
