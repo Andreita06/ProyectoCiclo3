@@ -58,6 +58,7 @@ export default {
   },
   methods: {
     editar() {
+     // this.$refs.ed(date)
       console.log("editar");
     },
     eliminar() {

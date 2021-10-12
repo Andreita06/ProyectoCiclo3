@@ -19,13 +19,13 @@
             <v-text-field
               v-model="identificacion"
               :rules="Rules"
-              label="Numero de identificación"
+              label="Número de identificación"
               outlined
             ></v-text-field>
             <v-text-field
               v-model="correo"
               :rules="Rules"
-              label="Correo Electronico"
+              label="Correo Electrónico"
               outlined
             ></v-text-field>
             <v-text-field

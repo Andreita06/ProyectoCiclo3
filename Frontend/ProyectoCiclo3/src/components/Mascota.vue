@@ -36,8 +36,7 @@
                 Bulldog
                 Sin raza
                 San Bernardo
-                Coccer
-                Spanic
+                Coccer Spanic
                 label="Raza"
                 outlined
               ></v-autocomplete>
