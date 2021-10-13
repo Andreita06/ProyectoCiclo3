@@ -72,7 +72,7 @@ export default {
      })
      this.dialog = false
     },
-    },
+    
     eliminar() {
      console.log("eliminar");
      let url = "http://localhost:3000/mascota/" + this.id
@@ -84,7 +84,7 @@ export default {
      })
      this.dialog = false
     },
-  
+  },
 };
 </script>
 
