@@ -92,6 +92,7 @@ export default {
           }else{
             alert("Bienvenido")
             console.log("sesion iniciada");
+            localStorage.setItem("usuario_id", res.data.data._id);
             this.$router.push("/consulta");
           }
           

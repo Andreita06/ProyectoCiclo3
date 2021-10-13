@@ -23,6 +23,7 @@
           <v-row align="center" class="ma-auto">
               <v-autocomplete
                 v-model="tipo"
+                
                 :items="tipos"
                 label="Tipo de mascota"
                 outlined
@@ -97,6 +98,7 @@ export default {
     raza: null,
     AlertaNotificacion: true,
     ultimavacuna: "",
+    nombre_vacuna: "",
     nombre: "",
     meses: "",
     edad: "",
@@ -105,7 +107,7 @@ export default {
     menu: false,
     tipos: ["Perro", "Gato"],
     razas: [
-      "mini Pincher",
+     // "mini Pincher",
       "Samoyedo",
       "Bulldog",
       "Sin raza",
@@ -124,15 +126,18 @@ export default {
       },
       Guardar() {
       const datos = {
-        nombre: this.nombre,
-        edad: this.edad,
+        nombre_mascota: this.nombre,
+        edad_mascota: this.edad,
         meses: this.meses,
-        tipo: this.tipo,
-        raza: this.raza,
-        AlertaNotificacion: this.AlertaNotificacion,
-        ultimavacuna: this.ultimavacuna,
-        date: this.date,
+        tipo_mascota: this.tipo,
+        raza_mascota: this.raza,  
+        usuario_id: localStorage.getItem("usuario_id")      
       };
+      const vacuna ={
+        nombre_vacuna: this.nombre_vacuna,
+        fecha_ult_vacuna: this.ultimavacuna,
+        notificacion: this.AlertaNotificacion,
+      }
       if (this.$refs.form.validate()) {
         axios.post("http://localhost:3000/mascota", datos).then (res =>{
           console.log("mascota registrada");

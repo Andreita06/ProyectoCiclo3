@@ -14,34 +14,14 @@
  >        
     </v-text-field>
       <v-row align="center" class="ma-0" justify="center">
-        <v-col
+        <v-col v-for="mascota in mascotas" :key="mascota._id"
         cols="12"
         sm="6"
         md="4"
         lg="3">
-          <Carta nombreMascota="Maya" ultimaFechaV="31/08/2021" descripcion="Vacuna Séxtuple"></Carta>
+          <Carta :id="mascota._id" :nombreMascota="mascota.nombre_mascota" ultimaFechaV="31/08/2021" descripcion="Vacuna Séxtuple"></Carta>
         </v-col>
-        <v-col
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3">
-          <Carta nombreMascota="Maya" ultimaFechaV="31/08/2021" descripcion="Vacuna Séxtuple"></Carta>
-        </v-col>
-        <v-col
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3">
-          <Carta nombreMascota="Maya" ultimaFechaV="31/08/2021" descripcion="Vacuna Séxtuple"></Carta>
-        </v-col>
-        <v-col
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3">
-          <Carta nombreMascota="Maya" ultimaFechaV="31/08/2021" descripcion="Vacuna Séxtuple"></Carta>
-        </v-col>
+        
       </v-row>
     </v-card>
   </div>
@@ -51,6 +31,7 @@
 <script>
 //import Busqueda from '../components/Busqueda.vue'
 import Carta from '../components/Carta.vue'
+import axios from "axios"
 
 export default {
   name: "Consulta",
@@ -58,6 +39,21 @@ export default {
     //Busqueda,
     Carta  
   },
+
+  data(){
+    return{
+      mascotas: []
+    }
+  },
+
+  mounted(){ 
+    axios.get("http://localhost:3000/mascota_usuario/" + localStorage.getItem("usuario_id")).then(res =>{
+      this.mascotas = res.data
+    }).catch(error =>{
+      console.log("Error", error)
+    })
+  },
+
   methods:{
     consultar(){
       console.log("consulta")

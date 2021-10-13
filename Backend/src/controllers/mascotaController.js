@@ -29,6 +29,18 @@ class MascotasController {
         });
     }
 
+
+    consultarMascotaId_usuario(req, res) {
+        let usuario_id = req.params.id;
+        mascotas.find({ usuario_id: usuario_id } , (error, data) => {
+            if (error) {
+                res.status(500).json({ error });
+            } else {
+                res.status(200).json(data);
+            }
+        });
+    }
+
     //Método y ruta para consultar todos los mascotas
     getMascotas(req, res) {
         mascotas.find((error, data) => {

@@ -55,23 +55,36 @@ export default {
     nombreMascota: String,
     ultimaFechaV: String,
     descripcion: String,
+    id: String
   },
   methods: {
     editar() {
-     // this.$refs.ed(date)
+      data={
+        //datos a actualizar
+      }
       console.log("editar");
-    },
-    eliminar() {
-     console.log("eliminar");
-     let url = "http://localhost:3000/mascota" + this.id
-     axios.delete(url).then(res =>{
+       let url = "http://localhost:3000/mascota/" + this.id
+       axios.put(url,data).then(res =>{
        console.log(res.data)
+       location.reload()
      }).catch(err =>{
        console.log(err)
      })
      this.dialog = false
     },
-  },
+    },
+    eliminar() {
+     console.log("eliminar");
+     let url = "http://localhost:3000/mascota/" + this.id
+     axios.delete(url).then(res =>{
+       console.log(res.data)
+       location.reload()
+     }).catch(err =>{
+       console.log(err)
+     })
+     this.dialog = false
+    },
+  
 };
 </script>
 
